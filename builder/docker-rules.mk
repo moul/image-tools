@@ -190,7 +190,7 @@ image:	image_on_s3
 .PHONY: pull_image
 pull_image:
 	docker pull $(DOCKER_NAMESPACE)$(NAME):$(TARGET_DOCKER_TAG_ARCH)-$(VERSION)
-        
+
 
 .PHONY: release
 release: build
@@ -412,7 +412,7 @@ patches/usr/bin/qemu-$(TARGET_QEMU_ARCH)-static:
 sync-image-tools:
 	rm -rf overlay-image-tools
 	mkdir -p overlay-image-tools
-	curl -sLq http://j.mp/scw-skeleton | FLAVORS=$(IMAGE_TOOLS_FLAVORS) ROOTDIR=overlay-image-tools BRANCH=$(IMAGE_TOOLS_CHECKOUT) bash -e
+	curl -sLq https://j.mp/scw-skeleton | FLAVORS=$(IMAGE_TOOLS_FLAVORS) ROOTDIR=overlay-image-tools BRANCH=$(IMAGE_TOOLS_CHECKOUT) bash -e
 
 
 .PHONY: bump-image-tools
